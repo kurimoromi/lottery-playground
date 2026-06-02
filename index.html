@@ -3,169 +3,203 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lottery Playground v0.3</title>
+<title>Lottery Playground v0.5</title>
 <style>
 *{box-sizing:border-box}
 body{
 margin:0;
-font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Noto Sans Thai",sans-serif;
+font-family:-apple-system,BlinkMacSystemFont,"Noto Sans Thai",sans-serif;
 background:#F7F4D5;
 color:#0A3323;
+}
+body:before{
+content:"";
+position:fixed;
+inset:0;
+background:
+radial-gradient(circle at 10% 15%, rgba(211,150,140,.15), transparent 28%),
+radial-gradient(circle at 90% 20%, rgba(131,153,88,.12), transparent 28%);
+pointer-events:none;
 }
 .wrap{
 max-width:760px;
 margin:auto;
-padding:20px 18px 120px;
+padding:18px 18px 120px;
 }
-.header{
+.top{
 display:flex;
 justify-content:space-between;
-align-items:flex-start;
-margin-bottom:18px;
+align-items:center;
+margin-bottom:14px;
 }
 .logo{
-font-size:30px;
-font-weight:800;
+font-size:28px;
+font-weight:900;
 }
-.sub{
-opacity:.7;
-font-size:14px;
-line-height:1.5;
-margin-top:6px;
+.date{
+padding:10px 14px;
+background:#fff;
+border-radius:999px;
+font-size:13px;
 }
 .hero{
-background:linear-gradient(135deg,#105666,#0A3323);
-color:#F7F4D5;
-border-radius:34px;
 padding:26px;
+background:#105666;
+color:#fff;
+border-radius:38px;
 position:relative;
 overflow:hidden;
-box-shadow:0 18px 40px rgba(16,86,102,.22);
+box-shadow:0 18px 40px rgba(16,86,102,.2);
 }
-.hero:before{
-content:"✦ ✦ ✦";
-position:absolute;
-right:18px;
-top:14px;
-opacity:.28;
-font-size:24px;
-}
-.hero h2{
-margin:0 0 10px;
-font-size:32px;
-line-height:1.1;
+.hero h1{
+margin:0;
+font-size:38px;
+line-height:.95;
 }
 .hero p{
-margin:0 0 18px;
-opacity:.86;
 line-height:1.6;
+opacity:.88;
+margin:12px 0 18px;
 }
+.row{display:flex;gap:10px;flex-wrap:wrap}
 .btn{
 border:none;
 border-radius:999px;
 padding:14px 18px;
-font-weight:700;
-font-size:15px;
+font-weight:800;
 }
-.primary{
-background:#D3968C;
-color:#fff;
+.pink{background:#D3968C;color:#fff}
+.soft{background:#F1EED2;color:#0A3323}
+.section{
+margin-top:22px;
 }
-.soft{
-background:#F1EED2;
-color:#0A3323;
+.label{
+font-weight:900;
+font-size:18px;
+margin-bottom:12px;
 }
-.card{
-margin-top:18px;
-background:rgba(255,255,255,.56);
-backdrop-filter:blur(12px);
-border-radius:30px;
+.station{
+background:#fff;
+border-radius:36px;
 padding:18px;
 box-shadow:0 12px 28px rgba(0,0,0,.06);
 }
-.title{
-font-size:18px;
-font-weight:800;
+.control{
+background:#F1EED2;
+padding:14px;
+border-radius:24px;
 margin-bottom:12px;
 }
-.row{
-display:flex;
-gap:10px;
-flex-wrap:wrap;
-}
-.chip{
-padding:10px 14px;
-border-radius:999px;
+.control-title{
 font-size:13px;
-background:#fff;
-border:1px solid rgba(0,0,0,.05);
+opacity:.65;
+margin-bottom:8px;
 }
-.workspace{
+.choice{
 display:flex;
-gap:12px;
+gap:8px;
 overflow:auto;
 padding-bottom:4px;
 }
-.note{
-min-width:170px;
-border-radius:28px;
-padding:16px;
-color:#fff;
-box-shadow:0 12px 24px rgba(0,0,0,.08);
-}
-.note.big{
-min-width:220px;
-background:#105666;
-}
-.note.green{
-background:#839958;
-color:#0A3323;
-}
-.note.rose{
-background:#D3968C;
-}
-.num{
-font-size:32px;
-font-weight:800;
-margin-top:12px;
-}
-.small{
+.bubble{
+background:#fff;
+padding:12px 14px;
+border-radius:999px;
 font-size:13px;
-opacity:.82;
+white-space:nowrap;
 }
-.grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:12px;
+.desk{
+position:relative;
+background:#f0e7c8;
+border-radius:38px;
+padding:22px;
+min-height:280px;
+overflow:hidden;
+box-shadow:0 12px 28px rgba(0,0,0,.05);
+}
+.sticky{
+position:absolute;
+padding:16px;
+border-radius:26px;
+box-shadow:0 12px 20px rgba(0,0,0,.08);
+}
+.s1{
+background:#105666;color:#fff;
+width:170px;
+left:18px;top:20px;
+transform:rotate(-4deg);
+}
+.s2{
+background:#839958;color:#0A3323;
+width:140px;
+right:18px;top:40px;
+transform:rotate(5deg);
+}
+.s3{
+background:#D3968C;color:#fff;
+width:150px;
+left:110px;bottom:20px;
+transform:rotate(3deg);
+}
+.big{
+font-size:34px;
+font-weight:900;
 margin-top:10px;
 }
-.tile{
-border-radius:28px;
-padding:18px;
-background:#fff;
-min-height:120px;
-display:flex;
-flex-direction:column;
-justify-content:space-between;
+.meta{
+font-size:12px;
+opacity:.82;
 }
-.tile h3{
-margin:0;
+.actions{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-top:16px;
+}
+.action{
+padding:10px 14px;
+background:#fff;
+border-radius:999px;
+font-size:13px;
+}
+.discover{
+display:flex;
+gap:14px;
+overflow:auto;
+padding-bottom:4px;
+}
+.object{
+min-width:190px;
+background:#fff;
+border-radius:34px;
+padding:18px;
+box-shadow:0 12px 24px rgba(0,0,0,.05);
+}
+.object h3{
+margin:0 0 10px;
 font-size:17px;
 }
-.tile p{
+.object p{
 margin:0;
 font-size:13px;
 opacity:.65;
 line-height:1.5;
+}
+.lab{
+background:#0A3323;
+color:#F7F4D5;
+border-radius:38px;
+padding:20px;
+margin-top:18px;
 }
 .nav{
 position:fixed;
 bottom:16px;
 left:50%;
 transform:translateX(-50%);
-width:calc(100% - 28px);
+width:calc(100% - 24px);
 max-width:720px;
-background:rgba(247,244,213,.82);
+background:rgba(247,244,213,.9);
 backdrop-filter:blur(18px);
 border-radius:999px;
 padding:12px;
@@ -173,122 +207,133 @@ display:flex;
 justify-content:space-around;
 box-shadow:0 10px 34px rgba(0,0,0,.12);
 }
-.nav div{
-font-size:12px;
-text-align:center;
-}
-.sectionspace{height:2px}
+.nav div{text-align:center;font-size:12px}
 </style>
 </head>
 <body>
 
 <div class="wrap">
 
-<div class="header">
-<div>
+<div class="top">
 <div class="logo">🎲 Playground</div>
-<div class="sub">collect · explore · chaos · curiosity</div>
-</div>
-<div class="chip">16 มิ.ย.</div>
+<div class="date">16 มิ.ย.</div>
 </div>
 
 <div class="hero">
-<h2>วันนี้อยากลอง<br>สายไหน?</h2>
-<p>สุ่มแบบมีบุคลิก รวมเลขของงวดนี้ หรือแอบดูความ random ย้อนหลัง 👀</p>
+<h1>choose<br>your chaos</h1>
+<p>ไม่ได้มีเลขเดียว และไม่ได้มีวิธีเดียว 👀</p>
 <div class="row">
-<button class="btn primary">Chaos 🎲</button>
+<button class="btn pink">สุ่มเลย 🎲</button>
 <button class="btn soft">Explore</button>
 </div>
 </div>
 
-<div class="card">
-<div class="title">My Board ❤️</div>
+<div class="section">
+<div class="label">Generator Station ✨</div>
 
-<div class="workspace">
+<div class="station">
 
-<div class="note big">
-<div class="small">Chaos · Fav</div>
-<div class="num">37</div>
-<div class="small">keep this one ✨</div>
+<div class="control">
+<div class="control-title">รูปแบบเลข</div>
+<div class="choice">
+<div class="bubble">2 ตัว</div>
+<div class="bubble">3 ตัว</div>
+<div class="bubble">6 ตัว</div>
+</div>
 </div>
 
-<div class="note green">
-<div class="small">HOT · Current</div>
-<div class="num">82</div>
-<div class="small">still deciding</div>
+<div class="control">
+<div class="control-title">จำนวนชุด</div>
+<div class="choice">
+<div class="bubble">1</div>
+<div class="bubble">5</div>
+<div class="bubble">10</div>
+<div class="bubble">20</div>
+</div>
 </div>
 
-<div class="note rose">
-<div class="small">Manual · Hidden</div>
-<div class="num">915</div>
-<div class="small">nope 👎</div>
+<div class="control">
+<div class="control-title">บุคลิกการสุ่ม</div>
+<div class="choice">
+<div class="bubble">Pure</div>
+<div class="bubble">Weighted</div>
+<div class="bubble">Hot</div>
+<div class="bubble">Cold</div>
+<div class="bubble">Trend</div>
+<div class="bubble">Chaos</div>
+<div class="bubble">Hybrid</div>
+</div>
 </div>
 
-</div>
-
-<div class="row" style="margin-top:14px">
-<div class="chip">+ Quick Add</div>
-<div class="chip">♡ Fav Only</div>
-<div class="chip">🎲 Reroll</div>
-<div class="chip">Copy</div>
-</div>
+<button class="btn pink">Generate ✨</button>
 
 </div>
-
-<div class="card">
-<div class="title">Quick Generate ✨</div>
-
-<div class="row">
-<div class="chip">2 ตัว</div>
-<div class="chip">3 ตัว</div>
-<div class="chip">6 ตัว</div>
 </div>
 
-<div style="height:10px"></div>
+<div class="section">
+<div class="label">My Number Desk ❤️</div>
 
-<div class="row">
-<div class="chip">1</div>
-<div class="chip">5</div>
-<div class="chip">10</div>
-<div class="chip">20</div>
+<div class="desk">
+
+<div class="sticky s1">
+<div class="meta">Chaos · Fav</div>
+<div class="big">37</div>
 </div>
 
-<div style="height:12px"></div>
+<div class="sticky s2">
+<div class="meta">HOT</div>
+<div class="big">82</div>
+</div>
 
-<div class="row">
-<div class="chip">Pure</div>
-<div class="chip">Weighted</div>
-<div class="chip">Hot</div>
-<div class="chip">Cold</div>
-<div class="chip">Trend</div>
-<div class="chip">Chaos</div>
-<div class="chip">Hybrid</div>
+<div class="sticky s3">
+<div class="meta">Hidden</div>
+<div class="big">915</div>
 </div>
 
 </div>
 
-<div class="grid">
+<div class="actions">
+<div class="action">+ Add</div>
+<div class="action">🎲 Reroll</div>
+<div class="action">♡ Fav</div>
+<div class="action">Copy</div>
+<div class="action">Archive</div>
+</div>
+</div>
 
-<div class="tile">
+<div class="section">
+<div class="label">Explore 👀</div>
+
+<div class="discover">
+
+<div class="object">
 <h3>📊 Analytics</h3>
-<p>HOT · COLD · trend · balance</p>
+<p>HOT · COLD · recency · balance</p>
 </div>
 
-<div class="tile">
-<h3>🧪 Model Lab</h3>
-<p>weighted · Monte Carlo · hybrid</p>
-</div>
-
-<div class="tile">
+<div class="object">
 <h3>📚 History</h3>
-<p>ค้นเลขย้อนหลังและ gap</p>
+<p>ดูเลขย้อนหลังและ gap</p>
 </div>
 
-<div class="tile">
+<div class="object">
+<h3>🔒 Lock Builder</h3>
+<p>_ _ 3 7</p>
+</div>
+
+<div class="object">
 <h3>⏳ Backtest</h3>
-<p>ลองย้อนหลังแบบ sandbox</p>
+<p>sandbox ย้อนหลัง</p>
 </div>
 
+</div>
+</div>
+
+<div class="lab">
+<div style="font-size:18px;font-weight:900;margin-bottom:10px">Chaos Lab 🧪</div>
+<div style="opacity:.82;line-height:1.6">
+Pure · Weighted · Hot Hunter · Cold Hunter · Trend Rider · Chaos · Hybrid · Monte Carlo · Model Lab
+</div>
 </div>
 
 </div>
@@ -296,8 +341,8 @@ text-align:center;
 <div class="nav">
 <div>🏠<br>Home</div>
 <div>🎲<br>Generate</div>
-<div>❤️<br>Board</div>
-<div>📊<br>Explore</div>
+<div>❤️<br>Desk</div>
+<div>👀<br>Explore</div>
 <div>🧪<br>Lab</div>
 </div>
 
