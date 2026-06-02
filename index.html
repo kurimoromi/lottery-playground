@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lottery Playground v0.2</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#f6f7fb;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans Thai",sans-serif;color:#222}
+.wrap{max-width:760px;margin:auto;padding:20px 16px 120px}
+h1{margin:0;font-size:32px}
+.sub{opacity:.65;margin-top:6px;line-height:1.5}
+.hero,.card,.tile{background:white;border-radius:28px;box-shadow:0 10px 30px rgba(0,0,0,.06)}
+.hero{padding:24px;background:linear-gradient(135deg,#ecefff,#fff)}
+.card{padding:18px;margin-top:16px}
+.section{font-size:18px;font-weight:800;margin-bottom:12px}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.chip,.pill{border-radius:999px;padding:10px 14px;font-size:14px}
+.chip{background:#edf0ff}
+.pill{background:#f5f6fa}
+.btn{border:none;border-radius:18px;padding:14px 16px;font-weight:700}
+.dark{background:#222;color:#fff}
+.soft{background:#eef1ff}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tile{padding:18px}
+.tile h3{margin:0 0 8px}
+.tile p{margin:0;opacity:.65;font-size:13px;line-height:1.5}
+.number{display:flex;justify-content:space-between;align-items:center;background:#fafbff;border:1px solid #eceef8;padding:14px;border-radius:20px;margin-top:10px}
+.big{font-size:24px;font-weight:800}
+.nav{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);width:calc(100% - 24px);max-width:720px;background:rgba(255,255,255,.88);backdrop-filter:blur(16px);border-radius:28px;padding:10px;display:flex;justify-content:space-around;box-shadow:0 12px 32px rgba(0,0,0,.12)}
+.nav div{text-align:center;font-size:12px}
+.inputmock{border:1px dashed #d7dbea;border-radius:20px;padding:14px;opacity:.7}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>🎲 Lottery Playground</h1>
+<div class="sub">v0.2 — feature-complete UX prototype (mock)</div>
+
+<div class="hero">
+<h2 style="margin:0 0 8px">วันนี้อยากเล่นแบบไหนดี?</h2>
+<div style="opacity:.7;line-height:1.5;margin-bottom:14px">สุ่มเลข ดูย้อนหลัง หรือรวมเลขของงวดนี้ไว้ที่เดียว 👀</div>
+<button class="btn dark">เริ่มสุ่ม 🎲</button>
+</div>
+
+<div class="card">
+<div class="section">Quick Generate 🎲</div>
+
+<div style="font-size:13px;opacity:.6;margin-bottom:8px">รูปแบบเลข</div>
+<div class="row">
+<div class="chip">2 ตัว</div>
+<div class="chip">3 ตัว</div>
+<div class="chip">6 ตัว</div>
+</div>
+
+<div style="height:12px"></div>
+
+<div style="font-size:13px;opacity:.6;margin-bottom:8px">จำนวนชุด</div>
+<div class="row">
+<div class="chip">1</div>
+<div class="chip">5</div>
+<div class="chip">10</div>
+<div class="chip">20</div>
+</div>
+
+<div style="height:12px"></div>
+
+<div style="font-size:13px;opacity:.6;margin-bottom:8px">วิธีสุ่ม</div>
+<div class="row">
+<div class="pill">Pure Random</div>
+<div class="pill">Weighted</div>
+<div class="pill">Hot Hunter</div>
+<div class="pill">Cold Hunter</div>
+<div class="pill">Trend Rider</div>
+<div class="pill">Chaos</div>
+<div class="pill">Hybrid</div>
+</div>
+
+<div style="height:12px"></div>
+<button class="btn dark">Generate ✨</button>
+</div>
+
+<div class="card">
+<div class="section">My Board ❤️</div>
+
+<div class="number">
+<div>
+<div class="big">37</div>
+<div style="opacity:.6;font-size:13px">Chaos · Fav</div>
+</div>
+<div>❤️</div>
+</div>
+
+<div class="number">
+<div>
+<div class="big">82</div>
+<div style="opacity:.6;font-size:13px">HOT · Current draw</div>
+</div>
+<div>🎲</div>
+</div>
+
+<div class="number">
+<div>
+<div class="big">915</div>
+<div style="opacity:.6;font-size:13px">Manual · Hidden</div>
+</div>
+<div>👎</div>
+</div>
+
+<div class="row" style="margin-top:12px">
+<button class="btn soft">สุ่มเพิ่ม</button>
+<button class="btn soft">Copy All</button>
+<button class="btn soft">Fav Only</button>
+</div>
+
+<div style="height:14px"></div>
+<div class="inputmock">
+Quick Add<br>
+37, 82, 915
+</div>
+</div>
+
+<div class="card">
+<div class="section">Current Draw / Archive</div>
+<div class="row">
+<div class="chip">16 มิ.ย.</div>
+<div class="chip">30 มิ.ย.</div>
+<div class="chip">ย้อนหลัง</div>
+</div>
+</div>
+
+<div class="grid" style="margin-top:16px">
+<div class="tile">
+<h3>📊 Analytics</h3>
+<p>HOT · COLD · Trend · Window</p>
+</div>
+<div class="tile">
+<h3>🧪 Model Lab</h3>
+<p>Weighted · Monte Carlo · Hybrid</p>
+</div>
+<div class="tile">
+<h3>📚 History</h3>
+<p>ค้นเลขย้อนหลัง</p>
+</div>
+<div class="tile">
+<h3>⏳ Backtest</h3>
+<p>ทดลองย้อนหลัง</p>
+</div>
+</div>
+
+<div class="card">
+<div class="section">Lock Builder</div>
+<div class="row">
+<div class="chip">_ _ 3 7</div>
+<div class="chip">1 _ _ 5 _ _</div>
+</div>
+<div style="margin-top:10px">
+<button class="btn soft">Generate From Lock</button>
+</div>
+</div>
+
+<div class="card">
+<div class="section">Recent Curiosity ✨</div>
+<div class="row">
+<div class="chip">🔥 HOT</div>
+<div class="chip">🧊 COLD</div>
+<div class="chip">📈 Trend</div>
+<div class="chip">🎲 Chaos</div>
+<div class="chip">📊 Balance</div>
+</div>
+</div>
+
+</div>
+
+<div class="nav">
+<div>🏠<br>Home</div>
+<div>🎲<br>Generate</div>
+<div>❤️<br>Board</div>
+<div>📊<br>Explore</div>
+<div>🧪<br>Lab</div>
+</div>
+</body>
+</html>
